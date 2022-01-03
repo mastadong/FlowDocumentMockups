@@ -1,0 +1,111 @@
+﻿<Window x:Class="FlowDocument_01.FlowDocumentReaderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowDocument_01"
+        mc:Ignorable="d"
+        Title="FlowDocumentReaderWindow" Height="450" Width="800">
+    <Window.Resources>
+        <x:Array Type="{x:Type local:Person}" x:Key="PERSON">
+            <local:Person Id="1" Name="Joe"/>
+            <local:Person Id="2" Name="Jane"/>
+        </x:Array>
+    </Window.Resources>
+    
+    <DockPanel>
+        <Border Background="#ddd"
+                Padding="15"
+                >
+
+            <FlowDocumentReader Background="White">
+                <FlowDocument Background="White">
+                    <Paragraph>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis nulla enim. Vivamus turpis erat, mattis at lacus ac, aliquet pulvinar dolor. Maecenas diam risus, sagittis nec rutrum id, molestie eget elit. Duis a congue leo, nec varius lorem. Integer ac nisi consequat, euismod nulla eu, sagittis lacus. Duis sit amet odio a dui placerat imperdiet id in ipsum. Pellentesque at sapien vitae diam gravida porttitor. Phasellus viverra rutrum tellus, sagittis molestie massa. Mauris justo sapien, efficitur ac nunc at, pharetra venenatis magna. Maecenas rhoncus tincidunt enim, id tempus justo tempor bibendum. Cras vitae nisl nec lectus euismod sollicitudin. Suspendisse eros nunc, accumsan ut ullamcorper a, maximus ut ex.
+                    Vivamus faucibus nec ex quis cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent semper consectetur quam, facilisis suscipit quam placerat sit amet. Donec finibus tortor eu iaculis blandit. Ut tempus iaculis lorem eget posuere. Cras placerat blandit dui, et congue ex dapibus quis.
+                    Maecenas finibus faucibus tortor, in cursus tellus elementum eget. Aenean hendrerit nisl nec eros fringilla malesuada. Curabitur at justo efficitur, eleifend ante sed, suscipit orci. Vivamus feugiat malesuada nisl, at ultricies est mollis at. Ut sapien libero, maximus a lorem non, condimentum auctor ligula. Nam efficitur arcu vel tortor placerat viverra nec ac orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas a turpis facilisis, varius felis ut, efficitur nulla. Quisque in purus a nulla scelerisque sollicitudin. Donec id molestie nisl, nec fermentum sapien. Maecenas vehicula cursus mi, a faucibus risus congue eu. Fusce rutrum, enim quis bibendum malesuada, felis arcu pulvinar orci, ut porta quam metus ut risus. Pellentesque ut magna sit amet velit rhoncus pulvinar. Aenean viverra malesuada mauris ut vulputate. Nam sed fermentum felis.
+                    Mauris gravida a quam ac gravida. Praesent consequat tellus at lacus tristique consequat. Sed dictum nec ipsum a convallis. Proin et sodales leo. Nullam imperdiet, risus at tristique tincidunt, diam nisi pretium libero, sit amet dictum sem elit sed sem. Etiam egestas, ante posuere ultrices dignissim, felis lectus luctus orci, nec aliquet orci tellus at magna. Nam rutrum ligula mi, sed posuere eros pulvinar rutrum. Praesent maximus commodo bibendum. Donec in erat nisl.
+                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris fringilla lectus dui, elementum lacinia nibh maximus a. Donec viverra semper metus eu tincidunt. Nunc ac tristique est. Donec convallis sapien non nisi ultrices lacinia. Proin quis congue velit. Donec posuere placerat urna id imperdiet.
+                    </Paragraph>
+
+                    <Section Background="Beige">
+                        <Paragraph>Flow Document Types:</Paragraph>
+                        <List>
+                            <ListItem>
+                                <Paragraph>FlowDocumentScrollViewer</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>FlowDocumentReader</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>FlowDocumentPageViewer</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>RichTextBox</Paragraph>
+                            </ListItem>
+                        </List>
+                    </Section>
+
+                    <BlockUIContainer>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    >
+                            <Ellipse Height="15" Width="15" Fill="Red"/>
+                            <Ellipse Height="15" Width="15" Fill="Purple"/>
+                            <Ellipse Height="15" Width="15" Fill="Green"/>
+                        </StackPanel>
+                    </BlockUIContainer>
+
+                    <Table>
+                        <TableRowGroup>
+                            <TableRow Background="LightBlue">
+                                <TableCell>
+                                    <Paragraph>Fruits</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Pears</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Apples</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph>Jan</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>10 T</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>20 T</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+                    
+                    <Paragraph>
+                        <Image Source="C:\Users\noahb\Desktop\Marienplatz Station 02.jpg"/>
+                    </Paragraph>
+
+                    <Section>
+                        <Paragraph>People</Paragraph>
+                        <Paragraph>
+                            <ListView ItemsSource="{Binding Source={StaticResource PERSON}}"
+                                      Width="200"
+                                      >
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Paragraph>
+                    </Section>
+                    
+                    
+                </FlowDocument>
+            </FlowDocumentReader>
+        </Border>
+    </DockPanel>
+</Window>
